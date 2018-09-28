@@ -338,3 +338,6 @@ ASALocalRun/
 
 
 # End of https://www.gitignore.io/api/visualstudio
+
+# Ignore modules installed in wwwroot/
+**/wwwroot/lib/
