@@ -47,6 +47,19 @@ function initHub() {
 
         document.getElementById("messagesList").appendChild(li);
     });
+
+    connection.on("PriceUpdated", function (id, price) {
+        console.log("Price updated to ", id, price);
+
+        var encodedMsg = `The price of product ${id} has been updated to ${price}`;
+
+        var li = document.createElement("li");
+
+        li.textContent = encodedMsg;
+
+        document.getElementById("messagesList").appendChild(li);
+    });
+
     connection.start().catch(function (err) {
         return console.error(err.toString());
     });

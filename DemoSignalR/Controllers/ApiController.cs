@@ -1,6 +1,9 @@
 ﻿using DemoSignalR.Hubs;
+using DemoSignalR.IntegrationEvents.Events;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -8,17 +11,20 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoSignalR
+namespace DemoSignalR.Controllers
 {
     public class ApiController : Controller
     {
-        private readonly IHubContext<ChatHub> connectionManager;
-        private readonly string _jwtVerificationKey;
+        private readonly IHubContext<ChatHub> _connectionManager;
+        private readonly IEventBus _eventBus;
 
-        public ApiController(IHubContext<ChatHub> connectionManager)
+        private readonly IConfiguration _configuration;
+
+        public ApiController(IHubContext<ChatHub> connectionManager, IEventBus eventBus, IConfiguration configuration)
         {
-            this.connectionManager = connectionManager;
-            _jwtVerificationKey = Constants.JwtVerificationKey;
+            _configuration = configuration;
+            _connectionManager = connectionManager;
+            _eventBus = eventBus;
         }
 
         [HttpGet("status")]
@@ -26,9 +32,21 @@ namespace DemoSignalR
         {
             var userId = Constants.UserEmail;
 
-            await connectionManager.Clients.User(userId).SendAsync("StatusUpdated", "Proceeding");
+            await _connectionManager.Clients.User(userId).SendAsync("StatusUpdated", "Proceeding");
 
             return Ok("Status updated for " + userId);
+        }
+
+        /// <summary>
+        /// Mock route to simulate a status being published from another application
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("publish")]
+        public ActionResult PublishPriceChanged()
+        {
+            _eventBus.Publish(new ProductPriceChangedIntegrationEvent(123, 9.99m, 14.99m));
+
+            return Ok("Event published to RabbitMQ");
         }
 
         [HttpGet("token")]
@@ -40,7 +58,7 @@ namespace DemoSignalR
                 new Claim(ClaimTypes.Email, Constants.UserEmail)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtVerificationKey));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSigningKey"]));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
