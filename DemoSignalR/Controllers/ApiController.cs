@@ -27,16 +27,6 @@ namespace DemoSignalR.Controllers
             _eventBus = eventBus;
         }
 
-        [HttpGet("status")]
-        public async Task<ActionResult> ChangeStatus()
-        {
-            var userId = Constants.UserEmail;
-
-            await _connectionManager.Clients.User(userId).SendAsync("StatusUpdated", "Proceeding");
-
-            return Ok("Status updated for " + userId);
-        }
-
         /// <summary>
         /// Mock route to simulate a status being published from another application
         /// </summary>

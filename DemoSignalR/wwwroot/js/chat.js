@@ -35,19 +35,6 @@ function initHub() {
         document.getElementById("messagesList").appendChild(li);
     });
 
-    connection.on("StatusUpdated", function (status) {
-
-        console.log("Status updated to ", status);
-
-        var encodedMsg = "Your status has been updated to " + status;
-
-        var li = document.createElement("li");
-
-        li.textContent = encodedMsg;
-
-        document.getElementById("messagesList").appendChild(li);
-    });
-
     connection.on("PriceUpdated", function (id, price) {
         console.log("Price updated to ", id, price);
 

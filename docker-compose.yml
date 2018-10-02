@@ -1,9 +1,9 @@
 version: '3'
 services:
-  api:
-    build: .
+  signalr-demo:
+    build: DemoSignalR/.
     ports:
-      - "8080:80"
+      - "9090:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
     networks:
@@ -11,6 +11,17 @@ services:
     depends_on:
       - rabbitmq
 
+  price-api:
+    build: PricePublisher/.
+    ports:
+      - "9091:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+    networks:
+      - demo-signalr
+    depends_on:
+      - rabbitmq
+    
   rabbitmq:
     image: rabbitmq:3-management
     ports:
