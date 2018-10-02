@@ -10,6 +10,4 @@ namespace DemoSignalR
             return connection.User?.FindFirst(ClaimTypes.Email)?.Value;
         }
     }
-
-
 }

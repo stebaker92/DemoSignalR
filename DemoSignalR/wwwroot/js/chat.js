@@ -1,16 +1,19 @@
 ﻿"use strict";
 
 var loginToken = null;
-var connection
+var connection;
 
-fetch("/token").then(response => {
-    response.json().then(token => {
-        console.log("got token", token);
-        loginToken = token.token;
 
-        initHub();
+function login() {
+    fetch("/token").then(response => {
+        response.json().then(token => {
+            console.log("got token", token);
+            loginToken = token.token;
+
+            initHub();
+        });
     });
-});
+}
 
 function initHub() {
     // https://docs.microsoft.com/en-us/aspnet/core/signalr/authn-and-authz?view=aspnetcore-2.1#bearer-token-authentication
@@ -48,6 +51,13 @@ function initHub() {
         return console.error(err.toString());
     });
 }
+
+document.getElementById("loginButton").addEventListener("click", function (event) {
+    login();
+    event.preventDefault();
+    document.getElementById("loginButton").classList.add("hidden");
+    document.getElementById("sendRow").classList.remove("hidden");
+});
 
 document.getElementById("sendButton").addEventListener("click", function (event) {
     var user = document.getElementById("userInput").value;
