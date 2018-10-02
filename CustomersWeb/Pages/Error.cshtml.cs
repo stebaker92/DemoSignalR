@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace DemoSignalR.Pages
+namespace CustomersWeb.Pages
 {
     public class ErrorModel : PageModel
     {

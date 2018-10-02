@@ -1,5 +1,5 @@
-﻿using DemoSignalR.Hubs;
-using DemoSignalR.IntegrationEvents.Events;
+﻿using CustomersWeb.Hubs;
+using CustomersWeb.IntegrationEvents.Events;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
@@ -11,7 +11,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoSignalR.Controllers
+namespace CustomersWeb.Controllers
 {
     public class ApiController : Controller
     {

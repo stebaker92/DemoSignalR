@@ -3,9 +3,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using DemoSignalR.EventHandlers;
-using DemoSignalR.Hubs;
-using DemoSignalR.IntegrationEvents.Events;
+using CustomersWeb.EventHandlers;
+using CustomersWeb.Hubs;
+using CustomersWeb.IntegrationEvents.Events;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,7 +21,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using RabbitMQ.Client;
 
-namespace DemoSignalR
+namespace CustomersWeb
 {
     public class Startup
     {

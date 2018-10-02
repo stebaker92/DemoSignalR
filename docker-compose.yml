@@ -1,7 +1,7 @@
 version: '3'
 services:
-  signalr-demo:
-    build: DemoSignalR/.
+  customers-web:
+    build: CustomersWeb/.
     ports:
       - "9090:80"
     environment:

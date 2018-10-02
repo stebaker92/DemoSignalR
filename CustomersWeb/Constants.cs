@@ -1,4 +1,4 @@
-﻿namespace DemoSignalR
+﻿namespace CustomersWeb
 {
     public class Constants
     {

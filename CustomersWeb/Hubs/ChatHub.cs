@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 
-namespace DemoSignalR.Hubs
+namespace CustomersWeb.Hubs
 {
     /// <summary>
     /// The Hub class manages connections, groups, and messaging

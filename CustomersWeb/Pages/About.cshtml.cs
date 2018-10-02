@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace DemoSignalR.Pages
+namespace CustomersWeb.Pages
 {
     public class AboutModel : PageModel
     {

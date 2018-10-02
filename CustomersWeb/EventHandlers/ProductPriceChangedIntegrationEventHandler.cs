@@ -1,12 +1,12 @@
-﻿using DemoSignalR.Hubs;
-using DemoSignalR.IntegrationEvents.Events;
+﻿using CustomersWeb.Hubs;
+using CustomersWeb.IntegrationEvents.Events;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace DemoSignalR.EventHandlers
+namespace CustomersWeb.EventHandlers
 {
     public class ProductPriceChangedIntegrationEventHandler : IIntegrationEventHandler<ProductPriceChangedIntegrationEvent>
     {

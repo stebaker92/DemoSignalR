@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace DemoSignalR
+namespace CustomersWeb
 {
     public class Program
     {

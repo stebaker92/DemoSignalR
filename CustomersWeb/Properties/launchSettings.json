@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DemoSignalR": {
+    "CustomersWeb": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
