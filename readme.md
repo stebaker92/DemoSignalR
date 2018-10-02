@@ -2,6 +2,10 @@
 
 A demo SignalR application with secure Hubs using JWT authentication & using rabbitMQ
 
+## Running through Docker
+
+- `docker-compose.exe up --build`
+
 ## Usage
 
 - Run RabbitMQ locally (or point to an existing instance & update `appsettings.json`)
