@@ -1,5 +1,5 @@
-﻿using CustomersWeb.Hubs;
-using CustomersWeb.IntegrationEvents.Events;
+﻿using CustomersWeb.Events;
+using CustomersWeb.Hubs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;

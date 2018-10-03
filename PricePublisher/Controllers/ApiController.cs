@@ -1,9 +1,9 @@
-﻿using PricePublisher.IntegrationEvents.Events;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using PricePublisher.Events;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
