@@ -11,9 +11,9 @@ RabbitMQ Exchanges and Queues will be automatically generated
   - `docker run -d -p 15672:15672 -p 5672:5672 rabbitmq:3-management`
 - Run the application and open your browser to: `http://localhost:9092/`
 - Click login to generate a valid authentication token
-- Ping the following endpoint to publish a PriceUpdatedEvent to the Exchange: `http://localhost:9091/price/update`
-  - The Event will then be picked up & processed by the event handler (defined in the Api Startup.cs)
-  - This will broadcast an event to the specified user (by email address) that a products price has been updated
+- Ping the following endpoint to publish a PriceUpdatedEvent to the RabbitMQ Exchange: `http://localhost:9091/price/update`
+  - The Event will then be picked up & processed by the event handler (defined in the CustomersArea Startup.cs)
+  - This will broadcast an event to the specified customer (by email address) that a displays 'price has been updated'
 
 ## Notes
 
