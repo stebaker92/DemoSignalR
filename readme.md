@@ -15,6 +15,10 @@ RabbitMQ Exchanges and Queues will be automatically generated
   - The Event will then be picked up & processed by the event handler (defined in the CustomersArea Startup.cs)
   - This will broadcast an event to the specified customer (by email address) that a displays 'price has been updated'
 
+## Architecture
+
+The price publisher app will publish an event (via RabbitMQ), which CustomersWeb will subscribe to and broadcast to the browser (via SignalR)
+
 ## Notes
 
 RabbitMQ boilerplate taken from [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers/blob/dev/src/Services/Basket/Basket.API/Startup.cs)
