@@ -2,7 +2,7 @@
 
 A demo SignalR application with secure Hubs using JWT authentication & using rabbitMQ
 
-RabbitMQ Exchanges and Queues will be automatically generated
+RabbitMQ Exchanges and Queues will be automatically generated on application start
 
 ## Usage (Running with Docker)
 
